@@ -1485,12 +1485,24 @@ def render_admin_dashboard():
 def main():
     """Main application"""
     # Header with light theme
-    st.markdown("""
-    <div class="main-header">
-        <h1>👥 THE HR - HR Intelligent Assistant</h1>
-        <p>AI-Powered HR Policy Management & Employee Support System</p>
-    </div>
-    """, unsafe_allow_html=True)
+    # Render header using `st.image()` for the logo and columns for layout
+    logo_path = "logo.png"
+    col1, col2 = st.columns([1, 8])
+    with col1:
+        if os.path.exists(logo_path):
+            try:
+                st.image(logo_path, width=64)
+            except Exception:
+                st.markdown("<h1>👥</h1>", unsafe_allow_html=True)
+        else:
+            st.markdown("<h1>👥</h1>", unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div style='padding-left:8px'>
+            <h1 style='margin:0; padding-top:6px;'>THE HR - HR Intelligent Assistant</h1>
+            <p style='margin:0; color:#e9f3ea;'>AI-Powered HR Policy Management & Employee Support System</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     # Check for missing dependencies
     if not PDF_SUPPORT:
