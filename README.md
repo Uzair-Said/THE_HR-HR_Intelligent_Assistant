@@ -5,6 +5,7 @@ An AI-powered HR policy management system that helps employees quickly understan
 ## 🎯 Features
 
 ### Employee Portal
+
 - **Natural Language Q&A**: Ask questions about HR policies in plain English
 - **Smart Document Retrieval**: AI finds and cites relevant policy documents
 - **Quick Action Buttons**: Common queries like leave policy, benefits, and remote work
@@ -12,6 +13,7 @@ An AI-powered HR policy management system that helps employees quickly understan
 - **Multi-Document Reasoning**: Combines information from multiple sources
 
 ### Admin Dashboard (HR Team)
+
 - **Secure Access**: Password-protected admin interface
 - **Document Management**: Upload, manage, and delete HR documents
 - **Policy Health Analysis**: Automated detection of:
@@ -30,27 +32,31 @@ An AI-powered HR policy management system that helps employees quickly understan
 1. **Clone or download the project files**
 
 2. **Install dependencies:**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. **Run the application:**
+
 ```bash
 streamlit run hr_assistant.py
 ```
 
 4. **Access the application:**
-Open your browser and navigate to `http://localhost:8501`
+   Open your browser and navigate to `http://localhost:8501`
 
 ## 📱 How to Use
 
 ### For Employees
+
 1. Click on the **Employee Portal** tab
 2. View available HR documents in the expandable section
 3. Type your question in the chat interface or use quick action buttons
 4. Receive AI-powered answers with document citations
 
 ### For HR Admins
+
 1. Click on the **Admin Dashboard** tab
 2. Login with credentials:
    - Username: `hradmin`
@@ -63,12 +69,15 @@ Open your browser and navigate to `http://localhost:8501`
 ## 🎮 Demo Features
 
 ### Sample Documents Included
+
 - **Employee Handbook 2024**: Comprehensive policies including leave, benefits, code of conduct
 - **IT Security Policy**: Data protection and security guidelines
 - **Compensation & Benefits Guide**: Detailed salary and benefits information
 
 ### Pre-configured Scenarios
+
 The system includes intentional policy conflicts for demonstration:
+
 - Conflicting annual leave days between documents
 - Missing clauses detection
 - Ambiguous language identification
@@ -78,107 +87,122 @@ The system includes intentional policy conflicts for demonstration:
 ### Core Components
 
 1. **Document Processing**
+
    - PDF text extraction using PyPDF2
    - Simulated embeddings for document indexing
    - In-memory vector storage for quick retrieval
 
 2. **AI Question Answering**
+
    - Document retrieval based on query relevance
-   - Context-aware answer generation
-   - Multi-document information synthesis
-   - Citation tracking for transparency
 
-3. **Policy Analysis Engine**
-   - Pattern-based contradiction detection
-   - Required clause verification
-   - Ambiguity scoring
-   - Severity classification (High/Medium/Low)
+   # THE HR - HR Intelligent Assistant 👥
 
-4. **User Interface**
-   - Streamlit-based responsive design
-   - Real-time chat interface
-   - Tabbed navigation for role separation
-   - Custom CSS for professional appearance
+   An AI-driven HR policy assistant that helps employees find policy answers and lets HR teams manage, analyze, and improve HR documents through a simple Streamlit UI.
 
-## 📊 Policy Health Metrics
+   **Repository:** `THE_HR-HR_Intelligent_Assistant`
 
-The system analyzes documents for:
+   **Quick summary:** Upload HR documents (PDF/TXT), ask natural‑language questions, analyze policies for contradictions or missing clauses, and export policy health reports.
 
-### High Severity Issues
-- Direct contradictions between documents
-- Critical missing policies
-- Compliance violations
+   **Status:** Demo / Hackathon-ready (local use)
 
-### Medium Severity Issues
-- Missing standard sections
-- Incomplete procedures
-- Unclear responsibilities
+   **Admin demo credentials:** Username: `hradmin` Password: `hrpass123`
 
-### Low Severity Issues
-- Ambiguous language
-- Vague timeframes
-- Undefined terms
+   **Main app file:** `hr_assistant_v2.py`
 
-## 🛡️ Security Features
+   **Environment variables:**
 
-- Password-protected admin access
-- Role-based interface separation
-- Secure document handling
-- Session-based authentication
+   - `GROQ_API_KEY` (optional) — configure in a `.env` file for Groq/LLM integration.
 
-## 🎯 Use Cases
+   **Supported uploads:** PDF (requires `PyPDF2`) and plain text files.
 
-1. **Employee Self-Service**
-   - Quick policy lookups
-   - Benefits information
-   - Leave balance queries
-   - Procedure clarification
+   **Key files:**
 
-2. **HR Document Audit**
-   - Policy consistency checks
-   - Compliance verification
-   - Gap analysis
-   - Version control
+   - `hr_assistant_v2.py` — Streamlit app (employee portal + admin dashboard)
+   - `install_and_run.py` — helper script to install dependencies and run the app
+   - `requirements.txt` — pinned Python dependencies
+   - `hr_documents.json`, `chat_history.json` — local persistence files (created on first run)
 
-3. **Policy Improvement**
-   - Identify ambiguous language
-   - Find missing clauses
-   - Detect contradictions
-   - Generate improvement reports
+   **CI:** A GitHub Actions workflow `/.github/workflows/ci.yml` is included to run `flake8` and `pytest` on pushes and PRs.
 
-## 💡 Why It's Hackathon-Ready
+   **License:** MIT
 
-- **No deployment needed**: Runs locally with Streamlit
-- **Pre-loaded demo data**: Instant demonstration capability
-- **Visual impact**: Professional UI with clear value proposition
-- **Real-world application**: Solves actual HR challenges
-- **Scalable architecture**: Ready for production enhancement
+   ***
 
-## 🔄 Future Enhancements
+   ## Getting started (recommended)
 
-- Integration with actual LLMs (Groq API ready)
-- OCR support for scanned documents
-- Advanced embedding models
-- Department-specific policy filtering
-- Multi-language support
-- Audit trail and compliance reporting
-- Integration with HRIS systems
+   1. Clone the repo:
 
-## 📝 Notes
+   ```powershell
+   git clone https://github.com/Uzair-Said/THE_HR-HR_Intelligent_Assistant.git
+   cd THE_HR-HR_Intelligent_Assistant
+   ```
 
-- The current implementation uses simulated AI responses for demonstration
-- Groq API key is included but can be integrated for actual LLM calls
-- Document embeddings are simplified for the demo
-- Production deployment would require proper database integration
+   2. Create and activate a virtual environment (recommended):
 
-## 🤝 Contributing
+   ```powershell
+   # Windows (PowerShell)
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
 
-This is a hackathon project designed for demonstration. Feel free to extend and improve!
+   # macOS / Linux
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
-## 📄 License
+   3. Install dependencies:
 
-MIT License - Free to use and modify
+   ```powershell
+   pip install -r requirements.txt
+   ```
 
----
+   4. (Optional) Install dependencies and start via helper script:
 
-**Built with ❤️ for making HR processes smarter and more efficient**
+   ```powershell
+   python install_and_run.py
+   ```
+
+   5. Run the app:
+
+   ```powershell
+   streamlit run hr_assistant_v2.py
+   ```
+
+   Open `http://localhost:8501` in your browser.
+
+   ***
+
+   ## How to use
+
+   - **Employees:** Use the **Employee Portal** tab to ask questions in plain English. Sample questions are provided.
+   - **HR Admins:** Use the **Admin Dashboard** tab and login with the demo credentials. Upload documents, load sample documents, analyze policies, and export JSON reports.
+
+   ## Sample data
+
+   - The app ships with sample documents (Employee Handbook, IT Security Policy, Compensation & Benefits Guide) that demonstrate: conflicting clauses, missing sections, and ambiguous wording.
+
+   ## Notes & development details
+
+   - The app uses simulated embeddings and simple pattern-based analysis for demonstrations. It is not a production LLM integration out of the box.
+   - To enable full PDF extraction install `PyPDF2` (already included in `requirements.txt`). If missing, the app still runs with a fallback message.
+   - To integrate a real LLM, set `GROQ_API_KEY` in a `.env` file and add LLM call logic where appropriate.
+
+   ## Persistence
+
+   - Documents and chat history are stored locally in `hr_documents.json` and `chat_history.json`. For production, replace with a proper database.
+
+   ## CI
+
+   - A basic GitHub Actions workflow is included at `/.github/workflows/ci.yml` to run linting and tests.
+
+   ***
+
+   If you'd like, I can also:
+
+   - add a short development section with contribution guidelines,
+   - add a `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md`, or
+   - create a GitHub release/tag for this initial version.
+
+   If you'd like any of those, tell me which item to do next.
+
+   **Built with ❤️ — contact:** `uzair.said@awkum.edu.pk`
